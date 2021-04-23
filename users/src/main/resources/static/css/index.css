@@ -1,0 +1,74 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+
+.table .thead-dark th{
+  background: darkslategray;
+}
+
+.btn .btn:hover{
+  color: #fff;
+  background-color:darkslategray;
+  border-color: darkslategray;
+}
+
+  
+#button #button:hover{
+  color: #fff;
+  background-color:darkslategray;
+  border-color: darkslategray;
+}
+
+.button{
+  color: #fff;
+  background-color:darkslategray;
+  border-color: darkslategray;
+}
+
+.btn-primary{
+  color: #fff;
+  background-color:darkslategray;
+  border-color: darkslategray;
+}
+
+.btn-primary:root {
+  color: #fff;
+  background-color:darkslategray;
+  border-color: darkslategray;
+}
+
+.btn-primary:hover {
+  color: black;
+  background-color:white;
+  border-color: darkslategray;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  color: #fff;
+  background-color: darkslategray;
+  border-color: darkslategray;
+  box-shadow: 0 0 0 .2rem darkslategray;;
+}

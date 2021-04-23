@@ -1,0 +1,200 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>User Accounts | Nokia</title>
+
+    <!-- Bootstrap core CSS -->
+   <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+   <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+ 
+  </head>
+
+  <body>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">User Accounts</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" th:href="@{/Home}">Home</a>
+      </nav>
+    </div>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Accounts</h1>
+      <p class="lead"></p>
+    </div>
+
+    <div class="container" style="max-width: 1398px; margin-left: 355px;">
+      <div class="card-deck mb-3 text-center">
+        <table class="table table1" id="selectedRow">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
+              <th scope="col">Country</th>
+              <th scope="col">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="name">Ferdi Bulus</td>
+              <td class="phone">05384540105</td>
+              <td class="email">ferdi_bulus@hotmail.com</td>
+              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
+              <td class="country">Italy</td>
+              <td class="dept">IT</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td class="name">erdi Bulus</td>
+              <td class="phone">0545435455</td>
+              <td class="email">erdi_bulus@hotmail.com</td>
+              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
+              <td class="country">Germany</td>
+              <td class="dept">Engineering</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td class="name">Emir Bulus</td>
+              <td class="phone">9376262788</td>
+              <td class="email">emir_bulus@hotmail.com</td>
+              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
+              <td class="country">Switzerland</td>
+              <td class="dept">Cashier</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Add">Add</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Update">Update</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Delete">Delete</button>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Phone:</label>
+                  <input type="text" class="form-control" id="userphone">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email:</label>
+                  <input type="text" class="form-control" id="useremail">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Address:</label>
+                  <input class="form-control" id="useraddress">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Country:</label>
+                  <input type="text" class="form-control" id="usercountry"> 
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Department:</label>
+                  <input type="text" class="form-control" id="userdept">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mastfoot mt-auto" style="text-align: center; position: fixed; left: 0; bottom: 0; width: 100%;">
+        <div class="inner">
+          <p>Show more details about this application <a href="https://github.com/ferdibulus">Github</a>, by <a href="https://github.com/ferdibulus">@ferdibulus</a>.</p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+    
+	    $(document).ready(function () {
+	        var table = $('#selectedRow').DataTable();
+	        $('#selectedRow tbody').on('click', 'tr', function () {
+	            if ($(this).hasClass('selected')) {
+	                $(this).removeClass('selected');
+	            }
+	            else {
+	                table.$('tr.selected').removeClass('selected');
+	                $(this).addClass('selected');
+	            }
+	        });
+	    });
+	    
+	    
+        var id= "";
+        var name = "";
+        var phone = "";
+        var email = "";
+        var address = "";
+        var country = "";
+        var dept = "";
+
+
+        $(document).ready(function () {
+            $('tr').click(function () {
+              id = $(this).find('td:first-child').html() + '\n';
+              name = $(this).find('td:nth-child(2)').html() + '\n';
+              phone = $(this).find('td:nth-child(3)').html() + '\n';
+              email = $(this).find('td:nth-child(4)').html() + '\n';
+              address = $(this).find('td:nth-child(5)').html() + '\n';
+              country = $(this).find('td:nth-child(6)').html() + '\n';
+              dept = $(this).find('td:nth-child(7)').html() + '\n';
+            });
+          });
+
+          $('#exampleModal').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget)
+              var recipient = button.data('whatever') 
+              var modal = $(this)
+              modal.find('.modal-title').text(recipient + ' User')
+
+              if(recipient != "Add"){
+                document.getElementById("username").value = name;
+                document.getElementById("userphone").value = phone;
+                document.getElementById("useremail").value = email;
+                document.getElementById("useraddress").value = address;
+                document.getElementById("usercountry").value = country;
+                document.getElementById("userdept").value = dept;
+              }else{
+                document.getElementById("username").value = "";
+                document.getElementById("userphone").value = "";
+                document.getElementById("useremail").value = "";
+                document.getElementById("useraddress").value = "";
+                document.getElementById("usercountry").value = "";
+                document.getElementById("userdept").value = "";
+              }
+              
+          })
+    </script>
+  </body>
+</html>
