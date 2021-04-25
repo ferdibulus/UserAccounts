@@ -1,20 +1,15 @@
 *** Settings ***
-Documentation     Example using the space separated format.
-Library           OperatingSystem
+Library     RequestsLibrary
 
 *** Variables ***
-${MESSAGE}        Hello, world!
+${base_url}       http://localhost:8080
 
 *** Test Cases ***
-My Test
-    [Documentation]    Example test.
-    Log    ${MESSAGE}
-    My Keyword    ${CURDIR}
-
-Another Test
-    Should Be Equal    ${MESSAGE}    Hello, world!
-
+Get_All_Users_Accounts
+    
+    ${response}=    GET    ${base_url}/Accounts
+    log to console  ${response.status_code}
+    log to console  ${response.content}
+    log to console  ${response.headers}
+    
 *** Keywords ***
-My Keyword
-    [Arguments]    ${path}
-    Directory Should Exist    ${path}
