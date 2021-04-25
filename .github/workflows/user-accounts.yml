@@ -25,10 +25,6 @@ jobs:
       run: mvn -B package --file users/pom.xml
       
     - name: Deploy to Heroku
-    on:
-      push:
-       branches:
-          - master
       run: 
         git remote add heroku https://useraccountsfornokia.herokuapp.com
         git push heroku master -f 
