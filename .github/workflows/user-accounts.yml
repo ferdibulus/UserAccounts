@@ -24,6 +24,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file users/pom.xml
       
+    - name: Buildpack
+      uses: buildpack-ci/run-tests@v1
+      env:
+        BUILDPACK_URL: https://github.com/cloudfoundry/java-buildpack.git
+      
     - name: Deploy to Heroku
       run: 
         git remote add heroku https://useraccountsfornokia.herokuapp.com
