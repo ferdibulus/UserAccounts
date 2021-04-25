@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.7.6 on win32)" generated="20210426 00:52:43.162" rpa="true" schemaversion="2">
+<suite id="s1" name="Users" source="C:\Users\ferdi\UserAccountsProject\UserAccounts\users">
+<suite id="s1-s1" name="Test1" source="C:\Users\ferdi\UserAccountsProject\UserAccounts\users\test1.robot">
+<test id="s1-s1-t1" name="Open Browser Chrome">
+<status status="FAIL" starttime="20210426 00:52:43.226" endtime="20210426 00:52:43.227">Task case contains no keywords.</status>
+</test>
+<status status="FAIL" starttime="20210426 00:52:43.223" endtime="20210426 00:52:43.227"/>
+</suite>
+<status status="FAIL" starttime="20210426 00:52:43.201" endtime="20210426 00:52:43.229"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Users">Users</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test1">Users.Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

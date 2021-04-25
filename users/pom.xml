@@ -54,6 +54,11 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-buildpack-platform</artifactId> 
 		</dependency>	
+		<dependency>
+		    <groupId>org.robotframework</groupId>
+		    <artifactId>robotframework</artifactId>
+		    <version>4.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
