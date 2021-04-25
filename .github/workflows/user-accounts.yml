@@ -25,10 +25,6 @@ jobs:
       run: mvn -B package --file users/pom.xml
       
     - name: Deploy to Heroku
-      env:
-        HEROKU_API_TOKEN: ${{ secrets.HEROKU }}
-        HEROKU_API_NAME: ${{ 'useraccountsfornokia' }}
-      if: job.status == 'success'
       run: 
-        git remote add heroku https://heroku:$HEROKU.herokuapp.com/$HEROKU_API_NAME.git
+        git remote add heroku https://useraccountsfornokia.herokuapp.com
         git push heroku main
