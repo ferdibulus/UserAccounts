@@ -26,5 +26,5 @@ jobs:
       
     - name: Deploy to Heroku
       run: 
-        git remote add heroku https://useraccountsfornokia.herokuapp.com
+        git remote add -f heroku https://useraccountsfornokia.herokuapp.com
         git push heroku main
