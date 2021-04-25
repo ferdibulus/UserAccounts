@@ -31,4 +31,4 @@ jobs:
       if: job.status == 'success'
       run: 
         git remote add heroku https://heroku:$HEROKU.herokuapp.com/$HEROKU_API_NAME.git
-        git push heroku HEAD:master -f
+        git push heroku main
