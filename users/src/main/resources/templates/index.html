@@ -47,39 +47,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td class="name">Ferdi Bulus</td>
-              <td class="phone">05384540105</td>
-              <td class="email">ferdi_bulus@hotmail.com</td>
-              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
-              <td class="country">Italy</td>
-              <td class="dept">IT</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td class="name">erdi Bulus</td>
-              <td class="phone">0545435455</td>
-              <td class="email">erdi_bulus@hotmail.com</td>
-              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
-              <td class="country">Germany</td>
-              <td class="dept">Engineering</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td class="name">Emir Bulus</td>
-              <td class="phone">9376262788</td>
-              <td class="email">emir_bulus@hotmail.com</td>
-              <td class="address">Catalmese Avenue Sultansuyu Street No:54</td>
-              <td class="country">Switzerland</td>
-              <td class="dept">Cashier</td>
+            <tr th:each="account : ${accounts}">
+              <td th:text="${account.id}"></td>
+              <td class="name" th:text="${account.name}"></td>
+              <td class="phone" th:text="${account.phone}"></td>
+              <td class="email" th:text="${account.email}"></td>
+              <td class="address" th:text="${account.address}"></td>
+              <td class="country" th:text="${account.country}"></td>
+              <td class="dept" th:text="${account.department}"></td>
             </tr>
           </tbody>
         </table>
       </div>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Add">Add</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Update">Update</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Delete">Delete</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Update" title="Select An Account">Update</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Delete" title="Select An Account">Delete</button>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -116,13 +98,16 @@
                   <label for="message-text" class="col-form-label">Department:</label>
                   <input type="text" class="form-control" id="userdept">
                 </div>
+               
+                <div class="modal-footer">
+		              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		              <button type="button" class="btn btn-primary">Add</button>
+		              <button type="button" class="btn btn-primary">Update</button>
+		              <button type="button" class="btn btn-primary">Delete</button>
+           		</div>
               </form>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send</button>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -176,7 +161,7 @@
               var button = $(event.relatedTarget)
               var recipient = button.data('whatever') 
               var modal = $(this)
-              modal.find('.modal-title').text(recipient + ' User')
+              modal.find('.modal-title').text('User Account Operations')
 
               if(recipient != "Add"){
                 document.getElementById("username").value = name;
