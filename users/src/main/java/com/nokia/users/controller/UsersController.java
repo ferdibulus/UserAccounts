@@ -31,7 +31,6 @@ public class UsersController {
 		 ArrayList<User> allAccounts = new ArrayList<User>();
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
-  
         return "index";
     }
 
