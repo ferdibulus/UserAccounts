@@ -183,5 +183,47 @@ public class UsersDao {
 		return ret;
 
 	}
+	
+	public ArrayList<String[]> insertUser() {
+		Connection conn1 = getDatabaseConn();
+		if (conn == null)
+			return null;
+		String sql = "INSERT INTO user_accounts (id,name,phone,email,address,country,department)\n"
+				+ "VALUES (?,?,?,?,?,?,?)";
+		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
+		if (ret.size() == 0)
+			return null;
+
+		return ret;
+
+	}
+	
+	public boolean deleteUser(Long id) {
+		Connection conn1 = getDatabaseConn();
+		if (conn == null)
+			return false;
+		String sql ="DELETE FROM user_accounts WHERE id="+id+" ";
+		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
+		if (ret.size() == 0)
+			return false;
+
+		return true;
+
+	}
+	
+	public boolean updateUser(Long id) {
+		Connection conn1 = getDatabaseConn();
+		if (conn == null)
+			return false;
+		String sql ="UPDATE user_accounts\n"
+				+ "SET id = "+id+", name= , phone= , email= , address= , country= , department= , \n"
+				+ "WHERE id="+id+" ";
+		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
+		if (ret.size() == 0)
+			return false;
+
+		return true;
+
+	}
 
 }

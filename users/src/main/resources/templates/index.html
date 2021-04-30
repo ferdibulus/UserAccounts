@@ -73,37 +73,41 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form method="post" >
+              <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Id:</label>
+                  <input type="text" class="form-control" name="id" id="id">
+                </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Name:</label>
-                  <input type="text" class="form-control" id="username">
+                  <input type="text" class="form-control" name="username" id="username">
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Phone:</label>
-                  <input type="text" class="form-control" id="userphone">
+                  <input type="text" class="form-control" name="userphone" id="userphone">
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input type="text" class="form-control" id="useremail">
+                  <input type="text" class="form-control" name="useremail" id="useremail">
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Address:</label>
-                  <input class="form-control" id="useraddress">
+                  <input class="form-control" name="useraddress" id="useraddress">
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Country:</label>
-                  <input type="text" class="form-control" id="usercountry"> 
+                  <input type="text" class="form-control" name="usercountry" id="usercountry"> 
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="col-form-label">Department:</label>
-                  <input type="text" class="form-control" id="userdept">
+                  <input type="text" class="form-control" name="userdept" id="userdept">
                 </div>
                
                 <div class="modal-footer">
 		              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		              <button type="button" class="btn btn-primary">Add</button>
-		              <button type="button" class="btn btn-primary">Update</button>
-		              <button type="button" class="btn btn-primary">Delete</button>
+		              <button type="submit" class="btn btn-primary" formaction="/AddUser">Add</button>
+		              <button type="submit" class="btn btn-primary" formaction="/UpdateUser">Update</button>
+		              <button type="submit" class="btn btn-primary" formaction="/DeleteUser">Delete</button>
            		</div>
               </form>
               </div>
@@ -164,6 +168,7 @@
               modal.find('.modal-title').text('User Account Operations')
 
               if(recipient != "Add"){
+            	document.getElementById("id").value = id;
                 document.getElementById("username").value = name;
                 document.getElementById("userphone").value = phone;
                 document.getElementById("useremail").value = email;
@@ -171,6 +176,7 @@
                 document.getElementById("usercountry").value = country;
                 document.getElementById("userdept").value = dept;
               }else{
+            	  document.getElementById("id").value = "";
                 document.getElementById("username").value = "";
                 document.getElementById("userphone").value = "";
                 document.getElementById("useremail").value = "";
