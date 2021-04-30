@@ -59,6 +59,7 @@ public class UsersController {
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
          model.addAttribute("message", msg);
+         model.addAttribute("isOk", insertedUser);
        return "index";
    }
 	
@@ -74,8 +75,8 @@ public class UsersController {
 		String usercountry=request.getParameter("usercountry"); 
 		String userdept=request.getParameter("userdept"); 
 		String msg=""; 
-		boolean deletedUser = service.UpdateUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
-		if(!deletedUser) {
+		boolean updatedUser = service.UpdateUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
+		if(!updatedUser) {
 			msg = "User is not deleted.";
 		}else {
 			msg = "User is deleted.";
@@ -84,6 +85,7 @@ public class UsersController {
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
          model.addAttribute("message", msg);
+         model.addAttribute("isOk", updatedUser);
        return "index";
    }
 	
@@ -102,6 +104,7 @@ public class UsersController {
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
          model.addAttribute("message", msg);
+         model.addAttribute("isOk", deletedUser);
        return "index";
    }
 }
