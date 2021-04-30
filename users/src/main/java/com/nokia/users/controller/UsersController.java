@@ -83,12 +83,19 @@ public class UsersController {
 	
 	@PostMapping("/DeleteUser")
 	public String postDeleteUser(ModelMap model, HttpServletRequest request) {
-		String id=request.getParameter("id"); 
-		
-		
+		String idtemp=request.getParameter("id"); 
+		Long id = Long.parseLong(idtemp);
+		String msg="";
+		boolean deletedUser = service.DeleteUser(id);
+		if(!deletedUser) {
+			msg = "User is not deleted.";
+		}else {
+			msg = "User is deleted.";
+		}
 		 ArrayList<User> allAccounts = new ArrayList<User>();
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
+         model.addAttribute("message", msg);
        return "index";
    }
 }

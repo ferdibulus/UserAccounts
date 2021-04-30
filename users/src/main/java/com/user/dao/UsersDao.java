@@ -170,6 +170,104 @@ public class UsersDao {
 		}
 		return ret1;
 	}
+	
+	
+	
+	
+	//Insert -- Update -- Delete
+		static public boolean execSingleUpdateSQL(
+				Connection conn, 
+				String sql,
+				ArrayList<String[]> bindlist, 
+				boolean commit_after, 
+				int timeout_as_sec,
+				StringBuilder sberr
+				) {
+
+			boolean ret1 = true;
+			PreparedStatement pstmt = null;
+
+			StringBuilder using = new StringBuilder();
+			try {
+				pstmt = conn.prepareStatement(sql);
+
+				if (timeout_as_sec>0) 
+					try { pstmt.setQueryTimeout(timeout_as_sec);  } catch(Exception e) {}
+				if (bindlist!=null)
+				for (int i = 1; i <= bindlist.size(); i++) {
+					String[] a_bind = bindlist.get(i - 1);
+					String bind_type = a_bind[0];
+					String bind_val = a_bind[1];
+					if (i > 1)
+						using.append(", ");
+					using.append("{" + bind_val + "}");
+
+					if (bind_type.equals("INTEGER")) {
+						if (bind_val == null || bind_val.equals(""))
+							pstmt.setNull(i, java.sql.Types.INTEGER);
+						else
+							pstmt.setInt(i, Integer.parseInt(bind_val));
+					} else if (bind_type.equals("LONG")) {
+						if (bind_val == null || bind_val.equals(""))
+							pstmt.setNull(i, java.sql.Types.INTEGER);
+						else
+							pstmt.setLong(i, Long.parseLong(bind_val));
+					} else if (bind_type.equals("DOUBLE")) {
+						if (bind_val == null || bind_val.equals(""))
+							pstmt.setNull(i, java.sql.Types.DOUBLE);
+						else
+							pstmt.setDouble(i, Double.parseDouble(bind_val));
+					} else if (bind_type.equals("FLOAT")) {
+						if (bind_val == null || bind_val.equals(""))
+							pstmt.setNull(i, java.sql.Types.FLOAT);
+						else
+							pstmt.setFloat(i, Float.parseFloat(bind_val));
+					} 
+					else if (bind_type.equals("TIMESTAMP")) {
+						if (bind_val == null || bind_val.equals(""))
+							pstmt.setNull(i, java.sql.Types.TIMESTAMP);
+						else {
+							Timestamp ts=new Timestamp(System.currentTimeMillis());
+							try {ts=new Timestamp(Long.parseLong(bind_val));} catch(Exception e) {e.printStackTrace();}
+							pstmt.setTimestamp(i, ts);
+						}
+					}
+					else {
+						pstmt.setString(i, bind_val);
+					}
+				}
+
+
+
+				pstmt.executeUpdate();
+				//pstmt_execbind.execute();
+				
+				if (!conn.getAutoCommit() && commit_after) 	{
+					conn.commit();
+				}
+
+
+			} catch (SQLException e) {
+				System.out.println("SQLException@execSingleUpdateSQL : " + e.getErrorCode()+" " +e.getSQLState()+e.getSQLState());
+				e.printStackTrace();
+				if (sberr!=null) sberr.append("SQLException@execSingleUpdateSQL : " + e.getErrorCode()+" " +e.getSQLState()+" " +e.getMessage());
+				ret1 = false;
+			} catch (Exception e) {
+				System.out.println("Exception@execSingleUpdateSQL : " + e.getMessage());
+				e.printStackTrace();
+				if (sberr!=null) sberr.append("Exception@execSingleUpdateSQL : " + e.getMessage());
+				ret1 = false;
+			} finally {
+				try {
+					pstmt.close();
+					pstmt = null;
+				} catch (Exception e) {
+				}
+			}
+
+			return ret1;
+		}
+		
 
 	public ArrayList<String[]> getUsers() {
 		Connection conn1 = getDatabaseConn();
@@ -184,17 +282,27 @@ public class UsersDao {
 
 	}
 	
-	public ArrayList<String[]> insertUser() {
+	public boolean insertUser(Long id, String username, Long userphone, String useremail, String useraddress, String usercountry, String userdept) {
 		Connection conn1 = getDatabaseConn();
 		if (conn == null)
-			return null;
+			return false;
+		ArrayList<String[]> bindlist = new ArrayList<String[]>();
+		bindlist.clear();
+		bindlist.add(new String[] { "LONG", "" + id });
+		bindlist.add(new String[] { "STRING", "" + username });
+		bindlist.add(new String[] { "LONG", "" + userphone });
+		bindlist.add(new String[] { "STRING", "" + useremail });
+		bindlist.add(new String[] { "STRING", "" + useraddress });
+		bindlist.add(new String[] { "STRING", "" + usercountry });
+		bindlist.add(new String[] { "STRING", "" + userdept });
+		
 		String sql = "INSERT INTO user_accounts (id,name,phone,email,address,country,department)\n"
 				+ "VALUES (?,?,?,?,?,?,?)";
-		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
-		if (ret.size() == 0)
-			return null;
+		boolean isOk = execSingleUpdateSQL(conn1, sql, bindlist, false, 0, null);
+		if (!isOk)
+			return false;
 
-		return ret;
+		return true;
 
 	}
 	
@@ -203,8 +311,8 @@ public class UsersDao {
 		if (conn == null)
 			return false;
 		String sql ="DELETE FROM user_accounts WHERE id="+id+" ";
-		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
-		if (ret.size() == 0)
+		boolean isOk = execSingleUpdateSQL(conn1, sql, null, false, 0, null);
+		if (!isOk)
 			return false;
 
 		return true;

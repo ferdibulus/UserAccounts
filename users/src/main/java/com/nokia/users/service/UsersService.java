@@ -39,5 +39,20 @@ public class UsersService {
 		
 		return temp;
 	}
+	
+	public boolean InsertUser(Long id, String username, Long userphone, String useremail, String useraddress, String usercountry, String userdept) {
+		UsersDao db = new UsersDao();
+		return db.insertUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
+	}
+	
+	public boolean UpdateUser() {
+		UsersDao db = new UsersDao();
+		return db.updateUser(null);
+	}
+	
+	public boolean DeleteUser(Long id) {
+		UsersDao db = new UsersDao();
+		return db.deleteUser(id);
+	}
 
 }
