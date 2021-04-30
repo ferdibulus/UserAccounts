@@ -38,7 +38,7 @@ public class UsersController {
 	@PostMapping("/AddUser")
 	public String postInsertUser(ModelMap model, HttpServletRequest request) {
 		
-		String idtemp=request.getParameter("id"); 
+		String idtemp=request.getParameter("userid"); 
 		Long id = Long.parseLong(idtemp);
 		String username=request.getParameter("username"); 
 		String userphonetemp=request.getParameter("userphone"); 

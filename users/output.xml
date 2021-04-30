@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.0 (Python 3.7.6 on win32)" generated="20210430 21:11:18.551" rpa="false" schemaversion="2">
+<robot generator="Robot 4.0 (Python 3.7.6 on win32)" generated="20210430 21:37:27.689" rpa="false" schemaversion="2">
 <suite id="s1" name="Users" source="C:\Users\ferdi\UserAccountsProject\UserAccounts\users">
 <suite id="s1-s1" name="TestRobot" source="C:\Users\ferdi\UserAccountsProject\UserAccounts\users\TestRobot">
 <suite id="s1-s1-s1" name="InserUser" source="C:\Users\ferdi\UserAccountsProject\UserAccounts\users\TestRobot\InserUser.robot">
@@ -8,28 +8,28 @@
 <arg>mysession</arg>
 <arg>${base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210430 21:11:18.793" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210430 21:11:18.792" endtime="20210430 21:11:18.793"/>
+<msg timestamp="20210430 21:37:27.921" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210430 21:37:27.920" endtime="20210430 21:37:27.921"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body}</var>
 <arg>id="13434"</arg>
-<arg>username="deneme"</arg>
+<arg>username="Alex"</arg>
 <arg>userphone="050504848"</arg>
-<arg>useremail="deneme@gmail.com.tr"</arg>
+<arg>useremail="alex@gmail.com.tr"</arg>
 <arg>useraddress=""</arg>
 <arg>usercountry="USA"</arg>
 <arg>userdept="AUS""</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20210430 21:11:18.794" level="INFO">${body} = {'id': '"13434"', 'username': '"deneme"', 'userphone': '"050504848"', 'useremail': '"deneme@gmail.com.tr"', 'useraddress': '""', 'usercountry': '"USA"', 'userdept': '"AUS""'}</msg>
-<status status="PASS" starttime="20210430 21:11:18.793" endtime="20210430 21:11:18.794"/>
+<msg timestamp="20210430 21:37:27.922" level="INFO">${body} = {'id': '"13434"', 'username': '"Alex"', 'userphone': '"050504848"', 'useremail': '"alex@gmail.com.tr"', 'useraddress': '""', 'usercountry': '"USA"', 'userdept': '"AUS""'}</msg>
+<status status="PASS" starttime="20210430 21:37:27.921" endtime="20210430 21:37:27.922"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${header}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20210430 21:11:18.794" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20210430 21:11:18.794" endtime="20210430 21:11:18.795"/>
+<msg timestamp="20210430 21:37:27.923" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210430 21:37:27.922" endtime="20210430 21:37:27.923"/>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <var>${response}</var>
@@ -38,42 +38,42 @@
 <arg>data=${body}</arg>
 <arg>headers=${header}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<msg timestamp="20210430 21:11:18.795" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg timestamp="20210430 21:11:18.843" level="INFO">POST Request : url=http://localhost:8080/AddUser 
+<msg timestamp="20210430 21:37:27.923" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20210430 21:37:27.930" level="INFO">POST Request : url=http://localhost:8080/AddUser 
  path_url=/AddUser 
- headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '189'} 
- body={"id": "\"13434\"", "username": "\"deneme\"", "userphone": "\"050504848\"", "useremail": "\"deneme@gmail.com.tr\"", "useraddress": "\"\"", "usercountry": "\"USA\"", "userdept": "\"AUS\"\""} 
+ headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '185'} 
+ body={"id": "\"13434\"", "username": "\"Alex\"", "userphone": "\"050504848\"", "useremail": "\"alex@gmail.com.tr\"", "useraddress": "\"\"", "usercountry": "\"USA\"", "userdept": "\"AUS\"\""} 
  </msg>
-<msg timestamp="20210430 21:11:18.843" level="INFO">POST Response : url=http://localhost:8080/AddUser 
+<msg timestamp="20210430 21:37:27.931" level="INFO">POST Response : url=http://localhost:8080/AddUser 
  status=500, reason= 
- headers={'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 30 Apr 2021 18:11:18 GMT', 'Connection': 'close'} 
- body={"timestamp":"2021-04-30T18:11:18.810+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.NumberFormatException: null\r\n\tat java.base/java.lang.Long.parseLong(Long.java:670)\r\n\tat java.base/java.lang.Long.parseLong(Long.java:832)\r\n\tat com.nokia.users.controller.UsersController.postInsertUser(UsersController.java:42)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:652)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:733)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\n","message":"null","path":"/AddUser"} 
+ headers={'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 30 Apr 2021 18:37:27 GMT', 'Connection': 'close'} 
+ body={"timestamp":"2021-04-30T18:37:27.929+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.NumberFormatException: null\r\n\tat java.base/java.lang.Long.parseLong(Long.java:670)\r\n\tat java.base/java.lang.Long.parseLong(Long.java:832)\r\n\tat com.nokia.users.controller.UsersController.postInsertUser(UsersController.java:42)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:652)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:733)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\n","message":"null","path":"/AddUser"} 
  </msg>
-<msg timestamp="20210430 21:11:18.843" level="INFO">${response} = &lt;Response [500]&gt;</msg>
-<status status="PASS" starttime="20210430 21:11:18.795" endtime="20210430 21:11:18.844"/>
+<msg timestamp="20210430 21:37:27.931" level="INFO">${response} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20210430 21:37:27.923" endtime="20210430 21:37:27.931"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210430 21:11:18.844" endtime="20210430 21:11:18.845"/>
+<status status="PASS" starttime="20210430 21:37:27.931" endtime="20210430 21:37:27.932"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210430 21:11:18.845" endtime="20210430 21:11:18.846"/>
+<status status="PASS" starttime="20210430 21:37:27.932" endtime="20210430 21:37:27.933"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.headers}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210430 21:11:18.847" endtime="20210430 21:11:18.847"/>
+<status status="PASS" starttime="20210430 21:37:27.933" endtime="20210430 21:37:27.934"/>
 </kw>
-<status status="PASS" starttime="20210430 21:11:18.792" endtime="20210430 21:11:18.848"/>
+<status status="PASS" starttime="20210430 21:37:27.920" endtime="20210430 21:37:27.934"/>
 </test>
-<status status="PASS" starttime="20210430 21:11:18.620" endtime="20210430 21:11:18.848"/>
+<status status="PASS" starttime="20210430 21:37:27.752" endtime="20210430 21:37:27.935"/>
 </suite>
-<status status="PASS" starttime="20210430 21:11:18.618" endtime="20210430 21:11:18.849"/>
+<status status="PASS" starttime="20210430 21:37:27.749" endtime="20210430 21:37:27.936"/>
 </suite>
-<status status="PASS" starttime="20210430 21:11:18.594" endtime="20210430 21:11:18.850"/>
+<status status="PASS" starttime="20210430 21:37:27.728" endtime="20210430 21:37:27.936"/>
 </suite>
 <statistics>
 <total>
@@ -88,6 +88,6 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20210430 21:11:18.795" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20210430 21:37:27.923" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>
