@@ -319,15 +319,15 @@ public class UsersDao {
 
 	}
 	
-	public boolean updateUser(Long id) {
+	public boolean updateUser(Long id,String username, Long userphone, String useremail, String useraddress, String usercountry, String userdept) {
 		Connection conn1 = getDatabaseConn();
 		if (conn == null)
 			return false;
 		String sql ="UPDATE user_accounts\n"
-				+ "SET id = "+id+", name= , phone= , email= , address= , country= , department= , \n"
+				+ "SET name='"+username+"' , phone= "+userphone+" , email='"+useremail+"' , address='"+useraddress+"' , country='"+usercountry+"' , department='"+userdept+"' \n"
 				+ "WHERE id="+id+" ";
-		ArrayList<String[]> ret = getDbArray(conn1, sql, Integer.MAX_VALUE, null, 0, null, null);
-		if (ret.size() == 0)
+		boolean isOk = execSingleUpdateSQL(conn1, sql, null, false, 0, null);
+		if (!isOk)
 			return false;
 
 		return true;

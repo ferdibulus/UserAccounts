@@ -45,9 +45,9 @@ public class UsersService {
 		return db.insertUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
 	}
 	
-	public boolean UpdateUser() {
+	public boolean UpdateUser(Long id, String username, Long userphone, String useremail, String useraddress, String usercountry, String userdept) {
 		UsersDao db = new UsersDao();
-		return db.updateUser(null);
+		return db.updateUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
 	}
 	
 	public boolean DeleteUser(Long id) {
