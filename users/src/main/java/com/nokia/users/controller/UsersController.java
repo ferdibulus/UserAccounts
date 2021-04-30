@@ -37,20 +37,28 @@ public class UsersController {
 	
 	@PostMapping("/AddUser")
 	public String postInsertUser(ModelMap model, HttpServletRequest request) {
-		String id=request.getParameter("id"); 
+		
+		String idtemp=request.getParameter("id"); 
+		Long id = Long.parseLong(idtemp);
 		String username=request.getParameter("username"); 
-		String userphone=request.getParameter("userphone"); 
+		String userphonetemp=request.getParameter("userphone"); 
+		Long userphone = Long.parseLong(userphonetemp);
 		String useremail=request.getParameter("useremail"); 
 		String useraddress=request.getParameter("useraddress"); 
 		String usercountry=request.getParameter("usercountry"); 
 		String userdept=request.getParameter("userdept"); 
-		
-		
-		
+		String msg="";
+		boolean insertedUser=service.InsertUser(id,username,userphone,useremail,useraddress,usercountry,userdept);
+		if(!insertedUser) {
+			msg = "User inserted failed.";
+		}else {
+			msg = "User inserted succefsully.";
+		}	
 		
 		 ArrayList<User> allAccounts = new ArrayList<User>();
          allAccounts = service.test();
          model.addAttribute("accounts", allAccounts);
+         model.addAttribute("message", msg);
        return "index";
    }
 	
