@@ -21,7 +21,9 @@ public class UsersService {
 		String address;
 		String country;
 		String department;
-		
+		if(users == null) {
+			return null;
+		}
 		for (String[] strings : users) {
 		   int c=0;
 		   id = Long.parseLong(strings[c++]);

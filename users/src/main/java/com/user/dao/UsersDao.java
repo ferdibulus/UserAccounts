@@ -22,7 +22,7 @@ public class UsersDao {
 		String driver = "net.sourceforge.jtds.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/test_database";
 		String user = "root";
-		String pass = "1995";
+		String pass = "";
 		return conn.getConn(driver, url, user, pass);
 	}
 
