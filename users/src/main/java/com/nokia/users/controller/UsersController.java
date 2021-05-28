@@ -27,6 +27,13 @@ public class UsersController {
         return "home";
     }
 	
+	@GetMapping("/")
+	public String getHomePage() {
+
+        return "home";
+    }
+	
+	
 	@GetMapping("Accounts")
 	public String get(ModelMap model) {
 		 ArrayList<User> allAccounts = new ArrayList<User>();

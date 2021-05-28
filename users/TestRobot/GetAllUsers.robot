@@ -2,7 +2,7 @@
 Library     RequestsLibrary
 Library     Collections
 *** Variables ***
-${base_url}       http://localhost:8080
+${base_url}       http://localhost:8082
 
 *** Test Cases ***
 Get_All_Users_Accounts
