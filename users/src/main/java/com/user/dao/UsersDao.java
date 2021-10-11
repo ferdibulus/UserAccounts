@@ -20,9 +20,9 @@ public class UsersDao {
 
 	public Connection getDatabaseConn() {
 		String driver = "net.sourceforge.jtds.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/test_database";
+		String url = "jdbc:mysql://localhost:3306/test_database?autoReconnect=true&useSSL=false";
 		String user = "root";
-		String pass = "";
+		String pass = "1995";
 		return conn.getConn(driver, url, user, pass);
 	}
 
